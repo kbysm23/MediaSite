@@ -1,0 +1,402 @@
+@charset "UTF-8";
+body {
+  font-size: .9rem;
+  line-height: 1.7;
+  color: #121212;
+}
+
+a {
+  color: #121212;
+}
+
+/*下からフェードイン*/
+.fade-in {
+  opacity: 0;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+}
+
+.scroll-in {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+#overflow {
+  overflow: hidden;
+}
+
+#overflow .open #berger-btn span {
+  background: #fff;
+}
+
+#overflow .open #berger-btn span:nth-child(1) {
+  -webkit-transform: translateY(9px) rotate(-315deg);
+          transform: translateY(9px) rotate(-315deg);
+}
+
+#overflow .open #berger-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+#overflow .open #berger-btn span:nth-child(3) {
+  -webkit-transform: translateY(-9px) rotate(315deg);
+          transform: translateY(-9px) rotate(315deg);
+}
+
+#overflow .open #nav {
+  left: 0;
+  opacity: 1;
+}
+
+#overflow .open #mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 200;
+  opacity: .8;
+  cursor: pointer;
+}
+
+#overflow header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 80px;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 40px;
+  margin: 0 auto;
+  z-index: 100;
+}
+
+#overflow header .site-title {
+  line-height: 1px;
+}
+
+#overflow header .site-title img {
+  max-width: 100%;
+}
+
+#overflow header #berger-btn {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  z-index: 300;
+}
+
+#overflow header #berger-btn span {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background-color: #333;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+#overflow header #berger-btn span:nth-child(2) {
+  top: 9px;
+}
+
+#overflow header #berger-btn span:nth-child(3) {
+  bottom: 0;
+}
+
+#overflow header #nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  width: 300px;
+  padding: 60px 25px;
+  background-color: #121212;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  z-index: 300;
+  opacity: 0;
+}
+
+#overflow header #nav .nav-menu {
+  border-top: solid 1px white;
+  margin-bottom: 60px;
+}
+
+#overflow header #nav .nav-menu li {
+  position: relative;
+  margin: 0;
+  padding: 20px 0;
+  border-bottom: solid 1px white;
+}
+
+#overflow header #nav .nav-menu li a {
+  color: white;
+}
+
+#overflow header #nav .sns-menu li {
+  padding: 5px 0;
+}
+
+#overflow header #nav .sns-menu li a {
+  color: white;
+}
+
+#overflow header #mask {
+  display: none;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+#overflow #main .video {
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+#overflow #main .video #main-video {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#overflow #main #pickup {
+  margin-bottom: 100px;
+}
+
+#overflow #main #pickup .section-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #121212;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  #overflow #main #pickup .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
+
+#overflow #main #pickup .swiper {
+  width: 100%;
+  z-index: 10;
+}
+
+#overflow #main #pickup .swiper .swiper-wrapper {
+  width: 100%;
+}
+
+#overflow #main #pickup .swiper .swiper-wrapper .swiper-slide img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#overflow #main #feature {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 4%;
+  margin-bottom: 60px;
+}
+
+#overflow #main #feature .section-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #121212;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  #overflow #main #feature .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
+
+#overflow #main #feature .grid {
+  display: -ms-grid;
+  display: grid;
+  gap: 26px;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+#overflow #main #feature .grid .item {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-box-shadow: 0 0 8px 4px #ccc;
+          box-shadow: 0 0 8px 4px #ccc;
+}
+
+#overflow #main #feature .grid .item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#overflow #main #feature .grid .item .item-contents {
+  margin: 30px;
+}
+
+#overflow #main #feature .grid .item .item-contents .category {
+  font-size: 12px;
+  font-weight: normal;
+  color: #121212;
+  margin-bottom: 20px;
+}
+
+#overflow #main #feature .grid .item .item-contents .text {
+  font-size: 14.4px;
+  font-weight: bold;
+  color: #121212;
+  margin-bottom: 20px;
+}
+
+#overflow #main #feature .grid .item .item-contents .date {
+  font-size: 12px;
+  font-weight: normal;
+  color: #121212;
+  text-align: right;
+}
+
+#overflow #main #contact {
+  background: #000;
+  padding: 50px 0;
+}
+
+@media screen and (max-width: 600px) {
+  #overflow #main #contact {
+    padding: 80px 0;
+  }
+}
+
+#overflow #main #contact .section-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  #overflow #main #contact .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
+
+#overflow #main #contact .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 4%;
+}
+
+@media screen and (max-width: 600px) {
+  #overflow #main #contact .content {
+    display: block;
+  }
+}
+
+#overflow #main #contact .content .contact-info {
+  width: 45%;
+}
+
+@media screen and (max-width: 600px) {
+  #overflow #main #contact .content .contact-info {
+    width: 100%;
+  }
+}
+
+#overflow #main #contact .content .contact-info p {
+  font-size: 14.4px;
+  font-weight: normal;
+  color: white;
+  margin-bottom: 30px;
+}
+
+#overflow #main #contact .content .contact-form {
+  width: 45%;
+}
+
+@media screen and (max-width: 600px) {
+  #overflow #main #contact .content .contact-form {
+    width: 100%;
+  }
+}
+
+#overflow #main #contact .content .contact-form dt {
+  font-size: 14.4px;
+  font-weight: normal;
+  color: white;
+}
+
+#overflow #main #contact .content .contact-form dd input, #overflow #main #contact .content .contact-form dd textarea {
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#overflow #main #contact .content .contact-form .button input {
+  width: 200px;
+  font-size: 14.4px;
+  font-weight: normal;
+  color: white;
+  padding: 12px 0;
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  #overflow #main #contact .content .contact-form .button input {
+    width: 100%;
+  }
+}
+
+#overflow #main #contact .content .contact-form .button input:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+#overflow footer {
+  background-color: #000;
+  padding-bottom: 10px;
+}
+
+#overflow footer p {
+  font: 12px;
+  color: #fff;
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */

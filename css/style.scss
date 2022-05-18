@@ -1,0 +1,366 @@
+@charset "uft-8";
+
+body {
+  font-size: .9rem;
+  line-height: 1.7;
+  color: #121212;
+}
+
+a {
+  color: #121212;
+}
+
+@mixin font($size, $weight, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+/*下からフェードイン*/
+.fade-in {
+  opacity: 0;
+  transition-duration: 1s;
+  transition-property: opacity, transform;
+  transform: translateY(20px);
+}
+
+.scroll-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+#overflow {
+  overflow: hidden;
+  
+  // ナビメニュー表示時
+  .open {
+    #berger-btn {
+      span {
+        background: #fff;
+      }
+      
+      span:nth-child(1) {
+        transform: translateY(9px) rotate(-315deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-9px) rotate(315deg);
+      }
+    }
+    
+    #nav {
+      left: 0;
+      opacity: 1;
+    }
+    
+    #mask {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      z-index: 200;
+      opacity: .8;
+      cursor: pointer;
+    }
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 40px;
+    margin: 0 auto;
+    z-index: 100;
+    
+    .site-title {
+      line-height: 1px;
+      
+      img {
+        max-width: 100%;
+      }
+    }
+    
+    // 通常バーガーメニュー用css
+    #berger-btn {
+      width: 30px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      z-index: 300;
+      
+      span {
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background-color: #333;
+        transition: all .5s;
+      }
+      
+      // span:nth-child(1) {
+        //   top: 4px;
+        // }
+        span:nth-child(2) {
+        top: 9px;
+      }
+      span:nth-child(3) {
+        bottom: 0;
+      }
+    }
+    
+    // ナビメニュー用css
+    #nav {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: -300px;
+      bottom: 0;
+      width: 300px;
+      padding: 60px 25px;
+      background-color: #121212;
+      transition: all .5s;
+      z-index: 300;
+      opacity: 0;
+      
+      .nav-menu {
+        border-top: solid 1px white;
+        margin-bottom: 60px;
+        
+        li {
+          position: relative;
+          margin: 0;
+          padding: 20px 0;
+          border-bottom: solid 1px white;
+          
+          a {
+            color: white;
+          }
+        }
+      }
+      
+      .sns-menu {
+        li {
+          padding: 5px 0;
+          
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+    
+    #mask {
+      display: none;
+      transition: all .5s;
+    }
+  }
+  
+  #main {
+    .video {
+      margin-top: 80px;
+      margin-bottom: 100px;
+      
+      #main-video {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    
+    #pickup {
+      margin-bottom: 100px;
+      
+      .section-title {
+        @include font(36px, bold, #121212);
+        text-align: center;
+        margin-bottom: 30px;
+        
+        @media screen and (max-width: 600px) {
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .swiper {
+        width: 100%;
+        z-index: 10;
+        
+        .swiper-wrapper {
+          width: 100%;
+          
+          .swiper-slide {
+            img {
+              width: 100%;
+              aspect-ratio: 4 / 3;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+    
+    #feature {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 4%;
+      margin-bottom: 60px;
+      
+      .section-title {
+        @include font(36px, bold, #121212);
+        text-align: center;
+        margin-bottom: 30px;
+
+        @media screen and (max-width: 600px) {
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+      }
+      
+      .grid {
+        display: grid;
+        gap: 26px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        
+        .item {
+          transition: all 0.3s ease;
+          box-shadow: 0 0 8px 4px #ccc;
+          
+          
+          img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            
+            }
+            
+            .item-contents {
+              margin: 30px;
+              
+              .category {
+                @include font(12px, normal, #121212);
+                margin-bottom: 20px;
+              }
+            
+            .text {
+              @include font(14.4px, bold, #121212);
+              margin-bottom: 20px;
+            }
+            
+            .date {
+              @include font(12px, normal, #121212);
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+    
+    #contact {
+      background: #000;
+      padding: 50px 0;
+
+      @media screen and (max-width: 600px) {
+        padding: 80px 0;
+      }
+      
+      .section-title {
+        @include font(36px, bold, white);
+        text-align: center;
+        margin-bottom: 30px;
+
+        @media screen and (max-width: 600px) {
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+      }
+      
+      .content {
+        display: flex;
+        max-width: 1200px;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 4%;
+        
+        @media screen and (max-width: 600px) {
+          display: block;
+        }
+        
+        .contact-info {
+          width: 45%;
+          
+          @media screen and (max-width: 600px) {
+            width: 100%;
+          }
+          
+          p {
+            @include font(14.4px, normal, white);
+            margin-bottom: 30px;
+          }
+        }
+        
+        .contact-form {
+          width: 45%;
+          
+          @media screen and (max-width: 600px) {
+            width: 100%;
+          }
+          
+          dt {
+            @include font(14.4px, normal, white);
+          }
+          
+          dd{
+            input, textarea {
+              width: 100%;
+              background-color: #fff;
+              padding: 10px;
+              margin-bottom: 20px;
+            }
+          }
+          
+          .button {
+            input {
+              width: 200px;
+              @include font(14.4px, normal, white);
+              padding: 12px 0;
+              border: 1px solid #fff;
+              text-align: center;
+
+              @media screen and (max-width: 600px) {
+                width: 100%;
+              }
+            }
+
+            input:hover {
+              background-color: #fff;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: #000;
+    padding-bottom: 10px;
+
+    p {
+      font: 12px;
+      color: #fff;
+      text-align: center;
+    }
+  }
+}
