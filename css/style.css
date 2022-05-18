@@ -320,6 +320,7 @@ a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 4%;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 600px) {
